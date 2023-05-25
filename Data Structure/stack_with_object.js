@@ -1,40 +1,37 @@
 class Stack {
   constructor() {
-    this.items = [];
+    this.items = {};
+    this.head = 0;
   }
 
   push(element) {
-    this.items.push(element);
+    this.items[this.head] = element;
+    this.head++;
   }
 
   pop() {
-    return this.items.pop();
+    if (this.head === 0) {
+      return null;
+    }
+    const item = this.items[this.head - 1];
+    delete this.items[this.head - 1];
+    this.head--;
+    return item;
   }
 
   peek() {
-    return this.items[this.items.length - 1];
-  }
-
-  isEmpty() {
-    return this.items.length === 0;
+    return this.items[this.head - 1];
   }
 
   size() {
-    return this.items.length;
+    return this.head;
+  }
+
+  isEmpty() {
+    return this.head === 0;
   }
 
   print() {
-    console.log(this.items.toString());
+    console.log(this.items);
   }
 }
-
-const stack = new Stack();
-console.log(stack.isEmpty());   // return true
-stack.push(34);
-stack.push(12);
-stack.push(17);
-console.log(stack.size());  // return 3
-stack.print();  // return 34, 12, 17
-console.log(stack.pop()); 
-console.log(stack.peek());  // return 12
-stack.print();  // return 34, 12
