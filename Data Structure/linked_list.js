@@ -82,6 +82,57 @@ class LinkedList {
     return removedNode.value;
   }
 
+   removeValue(value) {
+    if (this.isEmpty()) {
+      return null;
+    }
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.size--;
+      return value;
+    } else {
+      let prev = this.head;
+      while (prev.next && prev.next.value !== value) {
+        prev = prev.next;
+      }
+      if (prev.next) {
+        removedNode = prev.next;
+        prev.next = removedNode.next;
+        this.size--;
+        return value;
+      }
+      return null;
+    }
+  }
+
+    search(value) {
+    if (this.isEmpty()) {
+      return -1;
+    }
+    let i = 0;
+    let curr = this.head;
+    while (curr) {
+      if (curr.value === value) {
+        return i;
+      }
+      curr = curr.next;
+      i++;
+    }
+    return -1;
+  }
+
+    reverse() {
+    let prev = null;
+    let curr = this.head;
+    while (curr) {
+      let next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty");
@@ -89,10 +140,30 @@ class LinkedList {
       let curr = this.head;
       let list = "";
       while (curr) {
-        list += `${curr.value}->`;
+        list += `${curr.value} -> `;
         curr = curr.next;
       }
       console.log(list);
     }
   }
 }
+
+const ll = new LinkedList();
+
+console.log(ll.isEmpty());          // True
+ll.append(50);                     
+ll.prepend(20);
+ll.append(80);
+ll.insert(60, 2);
+console.log(ll.getSize());          // 4
+ll.print();                         // 20 -> 50 -> 60 -> 80 ->
+ll.reverse();           
+ll.print();                         // 80 -> 60 -> 50 -> 20 -> 
+console.log(ll.search(60));         // 1
+ll.removeFrom(4);
+console.log(ll.getSize());          // 4
+ll.print();                         // 80 -> 60 -> 50 -> 20 -> 
+ll.removeValue(80);
+ll.print();                         // 60 -> 50 -> 20 -> 
+console.log(l.getSize());           // 3
+ll.print();                         // 60 -> 50 -> 20 -> 
