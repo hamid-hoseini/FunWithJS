@@ -61,4 +61,23 @@ class VanillaCoffee {
   }
 }
 
+// Lets make a coffee now
+
+let someCoffee
+
+someCoffee = new SimpleCoffee()
+console.log(someCoffee.getCost())// 10
+console.log(someCoffee.getDescription())// Simple Coffee
+
+someCoffee = new MilkCoffee(someCoffee)
+console.log(someCoffee.getCost())// 12
+console.log(someCoffee.getDescription())// Simple Coffee, milk
+
+someCoffee = new WhipCoffee(someCoffee)
+console.log(someCoffee.getCost())// 17
+console.log(someCoffee.getDescription())// Simple Coffee, milk, whip
+
+someCoffee = new VanillaCoffee(someCoffee)
+console.log(someCoffee.getCost())// 20
+console.log(someCoffee.getDescription())// Simple Coffee, milk, whip, vanilla
 
