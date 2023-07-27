@@ -61,3 +61,14 @@ class RemoteControl {
       command.execute()
   }
 }
+
+
+// Finally let's see how we can use it in our client
+const bulb = new Bulb()
+
+const turnOn = new TurnOnCommand(bulb)
+const turnOff = new TurnOffCommand(bulb)
+
+const remote = new RemoteControl()
+remote.submit(turnOn) // Bulb has been lit!
+remote.submit(turnOff) // Darkness!
