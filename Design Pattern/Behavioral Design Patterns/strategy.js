@@ -1,0 +1,13 @@
+const bubbleSort = dataset => {
+  console.log('Sorting with bubble sort')
+  // ...
+  // ...
+  return dataset
+}
+
+const quickSort = dataset => {
+  console.log('Sorting with quick sort')
+  // ...
+  // ...
+  return dataset
+}
