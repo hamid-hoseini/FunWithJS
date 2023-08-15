@@ -21,3 +21,5 @@ class Bird extends Animal {
       console.log('flying');
   }
 }
+
+console.log(Bird.helloWorld()); // Hello World
