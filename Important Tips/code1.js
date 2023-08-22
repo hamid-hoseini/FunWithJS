@@ -1,4 +1,5 @@
 // Issue with try..catch inside setTimeout
+
 /**
  * Example1: 
     If you put setTimeout and setInterval methods
