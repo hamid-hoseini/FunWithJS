@@ -1,4 +1,4 @@
-// difference between setTimeout and setImmediate with example
+// difference between setTimeout and setImmediate
 
 /**
 `setTimeout` and `setImmediate` are both functions in JavaScript used to schedule the execution of a 
