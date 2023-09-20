@@ -8,6 +8,8 @@
 6. What are the possible side-effects in javascript?
 7. What are compose and pipe functions?
 8. What is the difference between setTimeout, setImmediate and process.nextTick?
+9. How do you group and nest console output?
+10. What is nullish coalescing operator (??)?
 
 
 
