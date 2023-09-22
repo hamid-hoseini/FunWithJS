@@ -10,6 +10,6 @@
 8. What is the difference between setTimeout, setImmediate and process.nextTick?
 9. How do you group and nest console output?
 10. What is nullish coalescing operator (??)?
-
+11. How do style the console output using CSS?
 
 
