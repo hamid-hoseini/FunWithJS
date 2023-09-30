@@ -1,0 +1,1 @@
+// make an object iterable in javascript
