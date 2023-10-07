@@ -14,5 +14,7 @@
 12. What are the built-in iterables?
 13. What is deno?
 14. What is an async function?
+15. What is a Short circuit condition?
+
 
 
