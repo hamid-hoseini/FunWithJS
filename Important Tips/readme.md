@@ -24,6 +24,8 @@
 22. What is an event table?
 23. What is heap?
 24. What are the differences between promises and observables?
+25. What is microtask?
+26. What are tasks in event loop?
 
 
 
