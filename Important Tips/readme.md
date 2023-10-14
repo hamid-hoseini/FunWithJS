@@ -26,6 +26,8 @@
 24. What are the differences between promises and observables?
 25. What is microtask?
 26. What are tasks in event loop?
+27. What are the different ways to deal with Asynchronous Code?
+28. What is AJAX?
 
 
 
