@@ -78,3 +78,43 @@ console.log([...new Set([1, 2, 4, 4, 3])]); // [1, 2, 4, 3]
 
 const myArray = [false, null, 1, 5, undefined];
 myArray.filter(Boolean); // [1, 5] // is same as myArray.filter(x => x);
+
+
+// 9. What is the output of prepend additive operator on falsy values
+
+// If you prepend the additive(+) operator on falsy values(null, undefined, NaN, false, ""), 
+// the falsy value converts to a number value zero. Let's display them on browser console as below,
+
+console.log(+null); // 0
+console.log(+undefined); // NaN
+console.log(+false); // 0
+console.log(+NaN); // NaN
+console.log(+""); // 0
+
+
+// 10. What happens if we add two arrays
+
+// If you add two arrays together, it will convert them both to strings and concatenate them. 
+// For example, the result of adding arrays would be as below,
+
+console.log(["a"] + ["b"]); // "ab"
+console.log([] + []); // ""
+console.log(![] + []); // "false", because ![] returns false.
+
+// 11. negating an array
+
+// Negating an array with ! character will coerce the array into a boolean. 
+// Since Arrays are considered to be truthy So negating it will return false.
+
+console.log(![]); // false
+
+// 12. remove all line breaks from a string
+
+// The easiest approach is using regular expressions to detect and replace newlines in the string. 
+// In this case, we use replace function along with string to replace with, which in our case is an empty string.
+
+function remove_linebreaks(message ) {
+    return message.replace( /[\r\n]+/gm, "" );
+}
+
+// In the above expression, g and m are for global and multiline flags.
