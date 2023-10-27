@@ -118,3 +118,14 @@ function remove_linebreaks(message ) {
 }
 
 // In the above expression, g and m are for global and multiline flags.
+
+
+// 13. combine two or more arrays
+
+// array1.concat(array2, array3 ... ,arrayX)
+//Let's take an example of array's concatenation with veggies and fruits arrays,
+
+var veggies = ["Tomato", "Carrot", "Cabbage"];
+var fruits = ["Apple", "Orange", "Pears"];
+var veggiesAndFruits = veggies.concat(fruits);
+console.log(veggiesAndFruits); // Tomato, Carrot, Cabbage, Apple, Orange, Pears
