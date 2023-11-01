@@ -129,3 +129,117 @@ var veggies = ["Tomato", "Carrot", "Cabbage"];
 var fruits = ["Apple", "Orange", "Pears"];
 var veggiesAndFruits = veggies.concat(fruits);
 console.log(veggiesAndFruits); // Tomato, Carrot, Cabbage, Apple, Orange, Pears
+
+
+// 14. difference between a parameter and an argument
+// Parameter is the variable name of a function definition whereas an argument represents the 
+// value given to a function when it is invoked. Let's explain this with a simple function
+
+function myFunction(parameter1, parameter2, parameter3) {
+  console.log(arguments[0]); // "argument1"
+  console.log(arguments[1]); // "argument2"
+  console.log(arguments[2]); // "argument3"
+}
+myFunction("argument1", "argument2", "argument3");
+
+
+// 15. the purpose of EvalError object
+// The EvalError object indicates an error regarding the global eval() function. 
+// Even though this exception is not thrown by JavaScript anymore, the EvalError object remains for compatibility. 
+// The syntax of this expression would be as below,
+
+// new EvalError([message[, fileName[, lineNumber]]])
+// You can throw EvalError with in try...catch block as below,
+
+try {
+  throw new EvalError('Eval function error', 'someFile.js', 100);
+} catch (e) {
+  console.log(e.message, e.name, e.fileName);      // "Eval function error", "EvalError", "someFile.js"
+}
+
+// 16. 
+// the purpose of Error object
+// The Error constructor creates an error object and the instances of error objects are thrown when runtime errors occur. 
+// The Error object can also be used as a base object for user-defined exceptions. The syntax of error object would be as below,
+
+// new Error([message[, fileName[, lineNumber]]])
+// You can throw user defined exceptions or errors using Error object in try...catch block as below,
+
+try {
+  if (withdraw > balance)
+    throw new Error("Oops! You don't have enough balance");
+} catch (e) {
+  console.log(e.name + ": " + e.message);
+}
+
+
+// 17. ArrayBuffer
+// An ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You can create it as below,
+
+let buffer = new ArrayBuffer(16); // create a buffer of length 16
+console.log(buffer.byteLength); // 16
+// To manipulate an ArrayBuffer, we need to use a “view” object.
+
+//Create a DataView referring to the buffer
+let view = new DataView(buffer);
+
+// 18. the purpose of double tilde operator
+// The double tilde operator(~~) is known as double NOT bitwise operator. 
+// This operator is a slightly quicker substitute for Math.floor().
+
+
+// 19. the output of below spread operator array
+[..."John Resig"];
+// The output of the array is ['J', 'o', 'h', 'n', '', 'R', 'e', 's', 'i', 'g'] Explanation: The string 
+// is an iterable type and the spread operator within an array maps every character of an iterable to one element. 
+// Hence, each character of a string becomes an element within an Array.
+
+
+// 20. dynamic imports
+// The dynamic imports using import() function syntax allows us to load modules on demand by 
+// using promises or the async/await syntax. Currently this feature is in stage4 proposal. 
+// The main advantage of dynamic imports is reduction of our bundle's sizes, the size/payload 
+// response of our requests and overall improvements in the user experience. The syntax of dynamic imports would be as below,
+
+import("./Module").then((Module) => Module.method());
+
+
+// 21. swap variables in destructuring assignment
+
+var x = 10,
+  y = 20;
+
+[x, y] = [y, x];
+console.log(x); // 20
+console.log(y); // 10
+
+// 22. default values in destructuring assignment
+
+// Arrays destructuring:
+var x, y, z;
+
+[x = 2, y = 4, z = 6] = [10];
+console.log(x); // 10
+console.log(y); // 4
+console.log(z); // 6
+
+// Objects destructuring:
+var { x = 2, y = 4, z = 6 } = { x: 10 };
+
+console.log(x); // 10
+console.log(y); // 4
+console.log(z); // 6
+
+
+// 23. destructuring assignment
+
+var [one, two, three] = ["JAN", "FEB", "MARCH"];
+
+console.log(one); // "JAN"
+console.log(two); // "FEB"
+console.log(three); // "MARCH"
+
+var { name, age } = { name: "John", age: 32 };
+
+console.log(name); // John
+console.log(age); // 32
