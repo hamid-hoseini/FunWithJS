@@ -243,3 +243,84 @@ var { name, age } = { name: "John", age: 32 };
 
 console.log(name); // John
 console.log(age); // 32
+
+// 24. template literals
+
+var greeting = `Welcome to JS World, Mr. ${firstName} ${lastName}.`;
+// In ES5, you need break string like below,
+
+var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName + '.';
+
+// 25. Default parameters
+
+//ES5
+var calculateArea = function (height, width) {
+  height = height || 50;
+  width = width || 60;
+
+  return width * height;
+};
+console.log(calculateArea()); //300
+
+// The default parameters makes the initialization more simpler,
+
+//ES6
+var calculateArea = function (height = 50, width = 60) {
+  return width * height;
+};
+
+console.log(calculateArea()); //300
+
+// 26. Is const variable makes the value immutable
+// No, the const variable doesn't make the value immutable. But it disallows subsequent 
+// assignments(i.e, You can declare with assignment but can't assign another value later)
+const userList = [];
+userList.push("John"); // Can mutate even though it can't re-assign
+console.log(userList); // ['John']
+
+// 27. some of the features of ES6
+// Below are the list of some new features of ES6,
+/**
+  Support for constants or immutable variables
+  Block-scope support for variables, constants and functions
+  Arrow functions
+  Default parameters
+  Rest and Spread Parameters
+  Template Literals
+  Multi-line Strings
+  Destructuring Assignment
+  Enhanced Object Literals
+  Promises
+  Classes
+  Modules
+ */
+
+  // 28. output of below for loops
+for (var i = 0; i < 4; i++) {
+  // global scope
+  setTimeout(() => console.log(i));
+}
+
+for (let i = 0; i < 4; i++) {
+  // block scope
+  setTimeout(() => console.log(i));
+}
+// The output of the above for loops is 4 4 4 4 and 0 1 2 3
+
+
+// 28. Why do you need to avoid with statement
+// JavaScript's with statement was intended to provide a shorthand for writing recurring accesses 
+// to objects. So it can help reduce file size by reducing the need to repeat a lengthy object 
+// reference without performance penalty. Let's take an example where it is used to avoid redundancy 
+// when accessing an object several times.
+
+a.b.c.greeting = "welcome";
+a.b.c.age = 32;
+// Using with it turns this into:
+
+with (a.b.c) {
+  greeting = "welcome";
+  age = 32;
+}
+// But this with statement creates performance problems since one cannot predict whether an 
+// argument will refer to a real variable or to a property inside the with argument.
