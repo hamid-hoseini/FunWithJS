@@ -324,3 +324,33 @@ with (a.b.c) {
 }
 // But this with statement creates performance problems since one cannot predict whether an 
 // argument will refer to a real variable or to a property inside the with argument.
+
+
+// 29. load CSS and JS files dynamically
+
+function loadAssets(filename, filetype) {
+  if (filetype == "css") {
+    // External CSS file
+    var fileReference = document.createElement("link");
+    fileReference.setAttribute("rel", "stylesheet");
+    fileReference.setAttribute("type", "text/css");
+    fileReference.setAttribute("href", filename);
+  } else if (filetype == "js") {
+    // External JavaScript file
+    var fileReference = document.createElement("script");
+    fileReference.setAttribute("type", "text/javascript");
+    fileReference.setAttribute("src", filename);
+  }
+  if (typeof fileReference != "undefined")
+    document.getElementsByTagName("head")[0].appendChild(fileReference);
+}
+
+// 30. invoke javascript code in an iframe from parent page
+// Initially iFrame needs to be accessed using either document.getElementBy or window.frames. 
+// After that contentWindow property of iFrame gives the access for targetFunction
+
+document.getElementById("targetFrame").contentWindow.targetFunction();
+window.frames[0].frameElement.contentWindow.targetFunction(); 
+// Accessing iframe this way may not work in latest versions chrome and firefox
+
+
