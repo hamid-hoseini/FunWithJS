@@ -390,3 +390,22 @@ let urlString = "http://www.some-domain.com/about.html?x=1&y=2&z=3"; //window.lo
 let url = new URL(urlString);
 let parameterZ = url.searchParams.get("z");
 console.log(parameterZ); // 3
+
+
+// 34. check whether an array includes a particular value or not
+
+var numericArray = [1, 2, 3, 4];
+console.log(numericArray.includes(3)); // true
+
+var stringArray = ["green", "yellow", "blue"];
+console.log(stringArray.includes("blue")); //true
+
+
+// 35. modify the url without reloading the page
+
+/** The window.location.href property will be helpful to modify the url but it reloads the page. 
+ * HTML5 introduced the history.pushState() and history.replaceState() methods, which allow you to 
+ * add and modify history entries, respectively. For example, you can use pushState as below,
+ */ 
+
+window.history.pushState("page2", "Title", "/page2.html");
