@@ -353,4 +353,40 @@ document.getElementById("targetFrame").contentWindow.targetFunction();
 window.frames[0].frameElement.contentWindow.targetFunction(); 
 // Accessing iframe this way may not work in latest versions chrome and firefox
 
+// 31. Namespace in JavaScript
+// JavaScript doesn’t support namespace by default. So if you create any element(function, method, object, variable) 
+// then it becomes global and pollutes the global namespace. Let's take an example of defining two functions without 
+// any namespace,
 
+function func1() {
+  console.log("This is a first definition");
+}
+function func1() {
+  console.log("This is a second definition");
+}
+func1(); // This is a second definition
+// It always calls the second function definition. In this case, namespace will solve the name collision problem.
+
+
+// 32. print numbers with commas as thousand separators
+// You can use the Number.prototype.toLocaleString() method which returns a string with a language-sensitive 
+// representation such as thousand separator,currency etc of this number.
+
+function convertToThousandFormat(x) {
+  return x.toLocaleString(); // 12,345.679
+}
+
+console.log(convertToThousandFormat(12345.6789));
+
+
+// 33. get the value from get parameters
+
+/** The new URL() object accepts the url string and searchParams property of this object can be used to 
+ * access the get parameters. Remember that you may need to use polyfill or window.location to access 
+ * the URL in older browsers(including IE).
+ */ 
+
+let urlString = "http://www.some-domain.com/about.html?x=1&y=2&z=3"; //window.location.href
+let url = new URL(urlString);
+let parameterZ = url.searchParams.get("z");
+console.log(parameterZ); // 3
