@@ -411,21 +411,99 @@ console.log(stringArray.includes("blue")); //true
 window.history.pushState("page2", "Title", "/page2.html");
 
 
-// 35. the attributes provided by a property descriptor
+// 35. list all properties of an object
 
-/** A property descriptor is a record which has the following attributes
+/** You can use the Object.getOwnPropertyNames() method which returns an array of all properties 
+ * found directly in a given object. Let's the usage of it in an example,
+ */ 
 
-value: The value associated with the property
-writable: Determines whether the value associated with the property can be changed or not
-configurable: Returns true if the type of this property descriptor can be changed and if the property can be deleted from the corresponding object.
-enumerable: Determines whether the property appears during enumeration of the properties on the corresponding object or not.
-set: A function which serves as a setter for the property
-get: A function which serves as a getter for the property
+const newObject = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+console.log(Object.getOwnPropertyNames(newObject));
+["a", "b", "c"];
+
+// 36. enum
+/** An enum is a type restricting variables to one value from a predefined set of constants. 
+ * JavaScript has no enums but typescript provides built-in enum support.
+ 
+enum Color {
+ RED, GREEN, BLUE
+}
+
 */
 
-const descriptor = {
-  value: 42,
-  writable: false,
-  enumerable: true,
-  configurable: true
+/** In JavaScript, an enum (short for enumeration) is not a built-in language feature like 
+ * in some other programming languages. However, you can achieve similar functionality by 
+ * using objects or constants to represent a set of predefined values.
+
+Here's an example of how you can create an "enum-like" structure using objects:
+*/
+
+const Colors = {
+  RED: 'red',
+  GREEN: 'green',
+  BLUE: 'blue'
 };
+
+console.log(Colors.RED);  // Output: 'red'
+
+
+// 37. example usage of rangeOverflow property
+
+/** If an element's value is greater than its max attribute then rangeOverflow property returns true. 
+ * For example, the below form submission throws an error if the value is more than 100,
+*/
+
+// <input id="age" type="number" max="100" />
+// <button onclick="myOverflowFunction()">OK</button>
+
+function myOverflowFunction() {
+  if (document.getElementById("age").validity.rangeOverflow) {
+    alert("The mentioned age is not allowed");
+  }
+}
+
+
+// 38. DOM methods available for constraint validation
+// The below DOM methods are available for constraint validation on an invalid input,
+
+// checkValidity(): It returns true if an input element contains valid data.
+// setCustomValidity(): It is used to set the validationMessage property of an input element. Let's take an user login form with DOM validations
+function myFunction() {
+  var userName = document.getElementById("uname");
+  if (!userName.checkValidity()) {
+    document.getElementById("message").innerHTML =
+      userName.validationMessage;
+  } else {
+    document.getElementById("message").innerHTML =
+      "Entered a valid username";
+  }
+}
+
+// 39. form validation using javascript
+
+/** JavaScript can be used to perform HTML form validation. For example, if the form field is empty, 
+ * the function needs to notify, and return false, to prevent the form being submitted. Lets' perform 
+ * user login in an html form,
+
+
+<form name="myForm" onsubmit="return validateForm()" method="post">
+  User name: <input type="text" name="uname" />
+  <input type="submit" value="Submit" />
+</form>
+*/
+
+//And the validation on user login is below,
+
+
+function validateForm() {
+  var x = document.forms["myForm"]["uname"].value;
+  if (x == "") {
+    alert("The username shouldn't be empty");
+    return false;
+  }
+}
