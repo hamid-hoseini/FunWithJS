@@ -507,3 +507,24 @@ function validateForm() {
     return false;
   }
 }
+
+
+// 40. the common tools used for minification
+
+/** 
+Minification is the process of removing all unnecessary characters(empty spaces are removed) and 
+variables will be renamed without changing it's functionality. It is also a type of obfuscation .
+There are many online/offline tools to minify the javascript files,
+
+Google's Closure Compiler
+UglifyJS2
+jsmin
+javascript-minifier.com/
+prettydiff.com
+
+advantages of minification
+Normally it is recommended to use minification for heavy traffic and intensive requirements of resources. It reduces file sizes with below benefits,
+
+1- Decreases loading times of a web page
+2- Saves bandwidth usages
+*/
