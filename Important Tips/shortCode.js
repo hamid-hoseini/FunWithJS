@@ -528,3 +528,38 @@ Normally it is recommended to use minification for heavy traffic and intensive r
 1- Decreases loading times of a web page
 2- Saves bandwidth usages
 */
+
+
+// 41. define multiple properties on an object
+
+/** The Object.defineProperties() method is used to define new or modify existing properties 
+ * directly on an object and returning the object. Let's define multiple properties on an empty object,
+*/
+
+const myObject = {};
+
+Object.defineProperties(myObject, {
+  newProperty1: {
+    value: "John",
+    writable: true,
+  },
+  newProperty2: {},
+});
+
+// 42. the different ways to make an object non-extensible
+
+// You can mark an object non-extensible in 3 ways,
+
+Object.preventExtensions
+Object.seal
+Object.freeze
+var newObject1 = {};
+
+Object.preventExtensions(newObject1); // Prevent objects are non-extensible
+Object.isExtensible(newObject1); // false
+
+var sealedObject = Object.seal({}); // Sealed objects are non-extensible
+Object.isExtensible(sealedObject); // false
+
+var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
+Object.isExtensible(frozenObject); // false
