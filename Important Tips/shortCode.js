@@ -563,3 +563,69 @@ Object.isExtensible(sealedObject); // false
 
 var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
 Object.isExtensible(frozenObject); // false
+
+
+// 43. To prevent an object to extend
+
+/** The Object.preventExtensions() method is used to prevent new properties from ever 
+ * being added to an object. In other words, it prevents future extensions to the object. 
+ * Let's see the usage of this property,
+ */ 
+
+const newObject2 = {};
+Object.preventExtensions(newObject2); // NOT extendable
+
+try {
+  Object.defineProperty(newObject2, "newProperty", {
+    // Adding new property
+    value: 100,
+  });
+} catch (e) {
+  console.log(e); // TypeError: Cannot define property newProperty, object is not extensible
+}
+
+// 44. To check whether an object can be extendable or not
+
+/** The Object.isExtensible() method is used to determine if an object is extendable or not. i.e, 
+ * Whether it can have new properties added to it or not.
+ */ 
+
+const newObject3 = {};
+console.log(Object.isExtensible(newObject3)); //true
+// Note: By default, all the objects are extendable. i.e, The new properties can be added or modified.
+
+
+// 45. To set prototype of one object to another
+
+/** You can use the Object.setPrototypeOf() method that sets the prototype (i.e., 
+ * the internal Prototype property) of a specified object to another object or null. 
+ * For example, if you want to set prototype of a square object to rectangle object would be as follows,
+ */ 
+
+Object.setPrototypeOf(Square.prototype, Rectangle.prototype);
+Object.setPrototypeOf({}, null);
+
+
+// 46. pass string type for getPrototype method
+
+/** In ES5, it will throw a TypeError exception if the obj parameter isn't an object. 
+ * Whereas in ES2015, the parameter will be coerced to an Object.
+ */ 
+
+// ES5
+Object.getPrototypeOf("James"); // TypeError: "James" is not an object
+// ES2015
+Object.getPrototypeOf("James"); // String.prototype
+
+
+// 47. get the prototype of an object
+
+/** You can use the Object.getPrototypeOf(obj) method to return the prototype of the 
+ * specified object. i.e. The value of the internal prototype property. If there are no 
+ * inherited properties then null value is returned.
+ */ 
+
+const newPrototype = {};
+const newObject4 = Object.create(newPrototype);
+
+console.log(Object.getPrototypeOf(newObject4) === newPrototype); // true
