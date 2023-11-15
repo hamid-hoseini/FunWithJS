@@ -629,3 +629,34 @@ const newPrototype = {};
 const newObject4 = Object.create(newPrototype);
 
 console.log(Object.getPrototypeOf(newObject4) === newPrototype); // true
+
+
+// 48. min and max value in an array
+
+var marks = [50, 20, 70, 60, 45, 30];
+function findMin(arr) {
+  return Math.min.apply(null, arr);
+}
+function findMax(arr) {
+  return Math.max.apply(null, arr);
+}
+
+console.log(findMin(marks));
+console.log(findMax(marks));
+
+
+// 49. an Unary operator
+
+/** The unary(+) operator is used to convert a variable to a number.If the variable cannot 
+ * be converted, it will still become a number but with the value NaN. Let's see this behavior in an action.
+ */ 
+
+var x = "100";
+var y = +x;
+console.log(typeof x, typeof y); // string, number
+
+var a = "Hello";
+var b = +a;
+console.log(typeof a, typeof b, b); // string, number, NaN
+
+

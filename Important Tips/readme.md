@@ -29,6 +29,10 @@
 27. What are the different ways to deal with Asynchronous Code?
 28. What is AJAX?
 29. What is the difference between reflow and repaint?
+30. What is call stack?
+31. What is an event queue?
+32. What is a decorator?
+33. What is an event loop?
 
 
 
