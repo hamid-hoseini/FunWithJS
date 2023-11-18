@@ -34,3 +34,15 @@ obj.add = 10;
 obj.subtract = 5;
 console.log(obj.increment); //6
 console.log(obj.decrement); //5
+
+
+/**
+  advantages of Getters and Setters
+  Below are the list of benefits of Getters and Setters,
+
+  They provide simpler syntax
+  They are used for defining computed properties, or accessors in JS.
+  Useful to provide equivalence relation between properties and methods
+  They can provide better data quality
+  Useful for doing things behind the scenes with the encapsulated logic.
+ */
