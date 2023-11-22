@@ -746,3 +746,18 @@ greeting();
 
 <input type="button" value="Print" onclick="window.print()" />
 // Note: In most browsers, it will block while the print dialog is open.
+
+
+// 55. encode/decode an URL
+
+// The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
+
+var uri = "https://mozilla.org/?x=test";
+var encoded = encodeURI(uri);
+console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+try {
+  console.log(decodeURI(encoded)); // "https://mozilla.org/?x=test"
+} catch (e) {
+  // catches a malformed URI
+  console.error(e);
+}
