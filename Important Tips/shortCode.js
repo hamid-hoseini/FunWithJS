@@ -722,3 +722,27 @@ var user = {
 console.log(user.lang); // getter access lang as en
 user.lang = "fr";
 console.log(user.lang); // setter used to set lang as fr
+
+
+// 53. precedence order between local and global variables
+
+// A local variable takes precedence over a global variable with the same name. 
+// Let's see this behavior in an example.
+
+var msg = "Good morning";
+function greeting() {
+  msg = "Good Evening";
+  console.log(msg); // Good Evening
+}
+greeting();
+
+
+// 54. print the contents of web page
+
+/** The window object provided a print() method which is used to print the contents of 
+ * the current window. It opens a Print dialog box which lets you choose between various 
+ * printing options. Let's see the usage of print method in an example,
+ */ 
+
+<input type="button" value="Print" onclick="window.print()" />
+// Note: In most browsers, it will block while the print dialog is open.
