@@ -1,5 +1,17 @@
 // the collection of methods available on WeakMap
 
+// The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
+
+new WeakMap([iterable]);
+// Let's see the below example to explain it's behavior,
+
+var ws = new WeakMap();
+var user = {};
+ws.set(user);
+ws.has(user); // true
+ws.delete(user); // removes user from the map
+ws.has(user); // false, user has been removed
+
 /** Below are the list of methods available on WeakMap,
 
 set(key, value): Sets the value for the key in the WeakMap object. Returns the WeakMap object.
