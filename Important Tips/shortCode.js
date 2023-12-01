@@ -761,3 +761,79 @@ try {
   // catches a malformed URI
   console.error(e);
 }
+
+
+// 56.  difference between Object.values and Object.entries method
+
+// The Object.values() method's behavior is similar to Object.entries() method but it returns an
+// array of values instead [key,value] pairs.
+
+const object = {
+  a: "Good morning",
+  b: 100,
+};
+
+for (let value of Object.values(object)) {
+  console.log(`${value}`); // 'Good morning'
+  100;
+}
+
+// 57. get enumerable key and value pairs
+
+// The Object.entries() method is used to return an array of a given object's own enumerable 
+// string-keyed property [key, value] pairs, in the same order as that provided by a for...in loop. 
+// Let's see the functionality of object.entries() method in an example,
+
+const newObject1 = {
+  a: "Good morning",
+  b: 100,
+};
+
+for (let [key, value] of Object.entries(newObject1)) {
+  console.log(`${key}: ${value}`); // a: 'Good morning'
+  // b: 100
+}
+
+
+// 58. determine if an object is sealed or not
+
+/** The Object.isSealed() method is used to determine if an object is sealed or not. An object is sealed if all of the below conditions hold true
+
+If it is not extensible.
+If all of its properties are non-configurable.
+If it is not removable (but not necessarily non-writable). Let's see it in the action
+*/
+const newObject5 = {
+  property: "Hello, Good morning",
+};
+
+Object.seal(newObject5); // Using seal() method to seal the object
+
+console.log(Object.isSealed(newObject5)); // checking whether the object is sealed or not
+
+
+// 59. differences between freeze and seal methods
+
+/** If an object is frozen using the Object.freeze() method then its properties 
+ * become immutable and no changes can be made in them whereas if an object is 
+ * sealed using the Object.seal() method then the changes can be made in the existing 
+ * properties of the object.
+ */
+
+
+// 60. purpose of seal method
+
+/** The Object.seal() method is used to seal an object, by preventing new properties 
+ * from being added to it and marking all existing properties as non-configurable. 
+ * But values of present properties can still be changed as long as they are writable. 
+ * Let's see the below example to understand more about seal() method
+ */ 
+
+const object7 = {
+  property: "Welcome JS world",
+};
+Object.seal(object7);
+object.property = "Welcome to object world";
+console.log(Object.isSealed(object7)); // true
+delete object7.property; // You cannot delete when sealed
+console.log(object7.property); //Welcome to object w
