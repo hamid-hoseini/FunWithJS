@@ -33,6 +33,7 @@
 31. What is an event queue?
 32. What is a decorator?
 33. What is an event loop?
+34. What are the applications of assign method?
 
 
 

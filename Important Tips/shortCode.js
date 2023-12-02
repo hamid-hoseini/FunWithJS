@@ -837,3 +837,24 @@ object.property = "Welcome to object world";
 console.log(Object.isSealed(object7)); // true
 delete object7.property; // You cannot delete when sealed
 console.log(object7.property); //Welcome to object w
+
+
+// 61. copy properties from one object to other
+
+/** You can use the Object.assign() method which is used to copy the values and properties 
+ * from one or more source objects to a target object. It returns the target object which has
+ * properties and values copied from the source objects. The syntax would be as below,
+ */
+
+Object.assign(target, ...sources);
+// Let's take example with one source and one target object,
+
+const target = { a: 1, b: 2 };
+const source = { b: 3, c: 4 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target); // { a: 1, b: 3, c: 4 }
+
+console.log(returnedTarget); // { a: 1, b: 3, c: 4 }
+// As observed in the above code, there is a common property(b) from source to target so it's value has been overwritten.
