@@ -858,3 +858,47 @@ console.log(target); // { a: 1, b: 3, c: 4 }
 
 console.log(returnedTarget); // { a: 1, b: 3, c: 4 }
 // As observed in the above code, there is a common property(b) from source to target so it's value has been overwritten.
+
+
+// 62. spread operator
+
+/** Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
+ * Let's take an example to see this behavior,
+ */ 
+
+function calculateSum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+console.log(calculateSum(...numbers)); // 6
+
+
+// 63. bitwise operators available in javascript
+
+/** Below are the list of bitwise logical operators used in JavaScript
+
+Bitwise AND ( & )
+Bitwise OR ( | )
+Bitwise XOR ( ^ )
+Bitwise NOT ( ~ )
+Left Shift ( << )
+Sign Propagating Right Shift ( >> )
+Zero fill Right Shift ( >>> )
+
+*/
+
+
+// 64. if you do not use rest parameter as a last argument
+
+/** The rest parameter should be the last argument, as its job is to collect all the remaining 
+ * arguments into an array. For example, if you define a function like below it doesn’t make any 
+ * sense and will throw an error.
+
+
+function someFunc(a,…b,c){
+//You code goes here
+return;
+}
+ */
