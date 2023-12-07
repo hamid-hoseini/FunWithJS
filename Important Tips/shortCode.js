@@ -930,3 +930,30 @@ var language =
   navigator.userLanguage; // IE <= 10
 
 console.log(language);
+
+
+// 67. the properties used to get size of window
+
+/** You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, 
+ * document element and document body objects to find the size of a window. Let's use them 
+ * combination of these properties to calculate the size of a window or document,
+ */
+
+var width =
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth;
+
+var height =
+  window.innerHeight ||
+  document.documentElement.clientHeight ||
+  document.body.clientHeight;
+
+
+// 68. convert date to another timezone in javascript
+
+/** You can use the toLocaleString() method to convert dates in one timezone to another. 
+ * For example, let's convert current date to British English timezone as below,
+ */
+
+console.log(event.toLocaleString("en-GB", { timeZone: "UTC" })); //29/06/2019, 09:56:00

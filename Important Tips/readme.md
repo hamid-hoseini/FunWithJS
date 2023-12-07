@@ -34,6 +34,8 @@
 32. What is a decorator?
 33. What is an event loop?
 34. What are the applications of assign method?
+35. What is the difference between proto and prototype?
+36. What is a conditional operator in javascript?
 
 
 
