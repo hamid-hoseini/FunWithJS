@@ -957,3 +957,37 @@ var height =
  */
 
 console.log(event.toLocaleString("en-GB", { timeZone: "UTC" })); //29/06/2019, 09:56:00
+
+
+// 69. get the image width and height using JS
+
+//You can programmatically get the image and check the dimensions(width and height) using Javascript.
+
+var img = new Image();
+img.onload = function () {
+  console.log(this.width + "x" + this.height);
+};
+img.src = "http://www.google.com/intl/en_ALL/images/logo.gif";
+
+
+// 70. detect a mobile browser without regexp
+
+/** You can detect mobile browsers by simply running through a list of devices and 
+ * checking if the useragent matches anything. This is an alternative solution for RegExp usage,
+ */ 
+
+function detectmob() {
+  if (
+    navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/BlackBerry/i) ||
+    navigator.userAgent.match(/Windows Phone/i)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
