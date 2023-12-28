@@ -167,3 +167,40 @@ ll.removeValue(80);
 ll.print();                         // 60 -> 50 -> 20 -> 
 console.log(l.getSize());           // 3
 ll.print();                         // 60 -> 50 -> 20 -> 
+
+
+// In JavaScript, a linked list looks like this:
+
+const list = {
+  head: {
+      value: 6,
+      next: {
+          value: 10,
+          next: {
+              value: 12,
+              next: {
+                  value: 3,
+                  next: null	
+                  }
+              }
+          }
+      }
+}
+
+/**
+An advantage of Linked Lists:
+- Nodes can easily be removed or added from a linked list without reorganizing the entire 
+data structure. This is one advantage it has over arrays.
+
+Disadvantages of Linked Lists:
+- Search operations are slow in linked lists. Unlike arrays, random access of data elements 
+is not allowed. Nodes are accessed sequentially starting from the first node.
+- It uses more memory than arrays because of the storage of the pointers.
+
+Singly linked lists methods have the following complexities:
+
+  Insertion - O(1)
+  Removal - O(n)
+  Search - O(n)
+  Access - O(n)
+*/
