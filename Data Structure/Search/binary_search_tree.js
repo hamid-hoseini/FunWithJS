@@ -193,3 +193,35 @@ bst.printLevel(bst.root, 3);
 console.log(bst.min());
 console.log(bst.max());
 console.log(bst.height(bst.root));
+
+
+/*
+Reference:
+https://www.interviewkickstart.com/learn/tree-traversals-inorder-preorder-and-postorder
+
+We can picture a tree as a recursive structure; DFS traversals can be implemented recursively. 
+When we’re at a node, three actions can occur: perform some operation on the current node 
+(like print the value stored in it), traverse the left subtree, and traverse the right subtree.
+ Based on this nature, we have the following types of DFS traversal of a tree: 
+
+Tree Traversal Inorder: 
+  In inorder tree traversal, we traverse left, perform some operation on the current node 
+  (in this article, we are printing the value stored in it), then traverse right.
+
+Tree Traversal Preorder: 
+  In preorder tree traversal, we perform some operation on the current node, traverse left, traverse right
+
+Tree Traversal Postorder: 
+  In postorder tree traversal, we traverse left, traverse right, Perform some operation on the current node
+
+
+Here is another way of representing the information above:
+
+Inorder => Left, Root, Right.
+Preorder => Root, Left, Right.
+Post order => Left, Right, Root.
+
+More References:
+https://praharshbhatt.medium.com/everything-about-tree-traversal-inorder-preorder-postorder-time-complexity-with-code-2f4de533277f
+
+*/

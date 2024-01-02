@@ -1,4 +1,6 @@
 # Important Question in Javascript:
+### https://github.com/sudheerj/javascript-interview-questions
+
 
 1. What is function execution context?
 2. What is optional chaining?
@@ -42,3 +44,6 @@
 
 ### Reference for Data Science Interview Resources
 https://github.com/rbhatia46/Data-Science-Interview-Resources
+
+### Reference for Data Structure
+https://www.freecodecamp.org/news/data-structures-in-javascript-with-examples
