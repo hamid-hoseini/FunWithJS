@@ -991,3 +991,16 @@ function detectmob() {
     return false;
   }
 }
+
+
+// 71. Usage of + and ~~ operator in javascript
+
+const x= "123";
+// It will return a number: 123
+console.log(+x);
+
+// It will return a negative number: -124
+console.log(~x);
+
+// It will return a positive  number: 123
+console.log(~~x);
