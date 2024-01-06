@@ -214,6 +214,13 @@ Tree Traversal Preorder:
 Tree Traversal Postorder: 
   In postorder tree traversal, we traverse left, traverse right, Perform some operation on the current node
 
+Note:
+A BST is a node-based, ordered, tree data structure in which each node can have a maximum of two children. 
+These are children are known as the left node and the right node. The left node will always be less than 
+its parent node, and the right node will always be greater than its parent node. The top node is known as 
+the root node. So with this in mind, if any descendant of the root node on its left is greater than the 
+root node or if any descendant of the root node on its right is less than the root node, the binary tree
+would be invalid.
 
 Here is another way of representing the information above:
 

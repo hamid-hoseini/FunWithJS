@@ -18,7 +18,7 @@ both strings of the same length with the same characters in the same order
 both the same object (means both object have same reference)
 both numbers and both +0 both -0 both NaN both non-zero and both not NaN and both have the same value.
 
-the purpose of using object (is) method
+the purpose of using object "is" method
 Some of the applications of Object's is method are follows,
 
 It is used for comparison of two strings.

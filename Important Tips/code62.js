@@ -4,7 +4,7 @@
 
 // Sample:
 
-const person = {
+let person = {
   firstName:"John",
   lastName: "Doe",
   fullName: function () {
@@ -17,12 +17,12 @@ person.fullName();
 
 // With call(), an object can use a method belonging to another object.
 
-const person = {
+person = {
   fullName: function() {
     return this.firstName + " " + this.lastName;
   }
 }
-const person1 = {
+let person1 = {
   firstName:"John",
   lastName: "Doe"
 }
@@ -36,13 +36,13 @@ person.fullName.call(person1);
 
 
 // The call() Method with Arguments
-const person = {
+person = {
   fullName: function(city, country) {
     return this.firstName + " " + this.lastName + "," + city + "," + country;
   }
 }
 
-const person1 = {
+person1 = {
   firstName:"John",
   lastName: "Doe"
 }
