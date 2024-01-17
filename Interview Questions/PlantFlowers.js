@@ -1,10 +1,12 @@
-// Microsoft Coding Interview
+// Microsoft Coding Interview Question
 
-// Can we plant 'n' flowers in a flower bed with the rule that no two flowers can be planted in adjacent pots
-// Input: flowerBed = [1,0,0,0,1],  n = 1
-// Output: true   => [1,0,1,0,1]
+/**
+Can we plant 'n' flowers in a flower bed with the rule that no two flowers can be planted in adjacent pots
+Input: flowerBed = [1,0,0,0,1],  n = 1
+Output: true   => [1,0,1,0,1]
 
-// https://www.youtube.com/shorts/qCP-IT7qwG0
+Reference: https://www.youtube.com/shorts/qCP-IT7qwG0
+*/
 
 const canPlantFlower = (flowerBed, n) => {
   let i = 0;
