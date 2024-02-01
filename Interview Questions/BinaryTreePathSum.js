@@ -35,4 +35,20 @@ function TreeNode(val) {
 }
 
 
+const tree = new TreeNode(5);
+tree.left = new TreeNode(4);
+tree.right = new TreeNode(8);
+tree.left.left = new TreeNode(11);          
+tree.left.left.left = new TreeNode(7);          
+tree.left.left.right = new TreeNode(2);   
+tree.right.left = new TreeNode(13); 
+tree.right.right = new TreeNode(4); 
+tree.right.right.right = new TreeNode(1); 
+
+console.log(hasPathSum(tree, 22));
+// Output: true
+          
+          
+
+
   
