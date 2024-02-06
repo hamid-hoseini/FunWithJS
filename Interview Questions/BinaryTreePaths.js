@@ -40,3 +40,11 @@ function TreeNode(val) {
   this.left = this.right = null;
 }
 
+
+const tree = new TreeNode(1);
+tree.left = new TreeNode(2);
+tree.right = new TreeNode(3);
+tree.left.right = new TreeNode(5);
+
+console.log(binaryTreePaths(tree));
+// Output: ["1->2->5","1->3"]
