@@ -24,3 +24,20 @@ const isSymmetric = function(root) {
   }
   return recurse(root.left, root.right);
 };
+
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
+
+
+const tree = new TreeNode(1);
+tree.left = new TreeNode(2);
+tree.right = new TreeNode(2);
+tree.left.left = new TreeNode(3);          
+tree.left.right = new TreeNode(3);          
+tree.right.left = new TreeNode(4); 
+tree.right.right = new TreeNode(4); 
+
+console.log(isSymmetric(tree));
+// Output: true
