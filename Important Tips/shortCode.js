@@ -1004,3 +1004,14 @@ console.log(~x);
 
 // It will return a positive  number: 123
 console.log(~~x);
+
+
+// 72. Usage of ** instead of Math.pow
+
+const base = 2;
+const exponent = 3;
+console.log(Matth.pow(bas, exponent));  // 8
+
+console.log(base ** exponent); // 8
+
+
