@@ -23,6 +23,11 @@ function isPowerOfTwo1(number) {
   return (number & (number - 1)) === 0;
 }
 
+/*
+it uses bitwise operations to determine if the number is a power of two. If the bitwise AND operation between the number 
+and number - 1 equals zero, which means the number is a power of two.
+*/
+
 // Example usage
 console.log(isPowerOfTwo1(16)); // Output: true
 console.log(isPowerOfTwo1(20)); // Output: false
