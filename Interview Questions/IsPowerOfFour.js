@@ -14,7 +14,7 @@ input: 10
 output: false
 */
 
-const isPowerOfOur = function(n) {
+const isPowerOfFour1 = function(n) {
   if (n === 1) return true;
   if (n <= 0 ) return false;
   if (n % 4 === 0) return true;
@@ -22,6 +22,21 @@ const isPowerOfOur = function(n) {
   return isPowerOfOur(n / 4);
 }
 
-console.log(isPowerOfOur(16)); // true
-console.log(isPowerOfOur(1)); // true
-console.log(isPowerOfOur(5)); // false
+console.log(isPowerOfOur1(16)); // true
+console.log(isPowerOfOur1(1)); // true
+console.log(isPowerOfOur1(5)); // false
+
+
+// Solution 2
+
+function isPowerOfFour2(num) {
+  if (num < 1) {
+    return false;
+  }
+
+  while (num % 4 === 0) {
+    num /= 4;
+  }
+
+  return num === 1;
+}
