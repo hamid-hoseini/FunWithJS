@@ -44,5 +44,34 @@ Otherwise, it recursively checks the left and right subtrees by calling isSameTr
 nodes (p.left and q.left) and the right child nodes (p.right and q.right).
 */
 
+const tree1 = {
+  val: 1,
+  left: {
+    val: 2,
+    left: null,
+    right: null
+  },
+  right: {
+    val: 3,
+    left: null,
+    right: null
+  }
+};
+
+const tree2 = {
+  val: 1,
+  left: {
+    val: 2,
+    left: null,
+    right: null
+  },
+  right: {
+    val: 3,
+    left: null,
+    right: null
+  }
+};
+
+console.log(isSameTree(tree1, tree2)); // Output: true
 
 
