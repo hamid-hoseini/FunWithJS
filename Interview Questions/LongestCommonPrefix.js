@@ -28,3 +28,27 @@ function longestCommonPrefix(strs) {
 const strings = ['flower', 'flow', 'flight'];
 const longestPrefix = longestCommonPrefix(strings);
 console.log(longestPrefix); // Output: "fl"
+
+
+// solution 2
+
+const longestCommonPrefix2 = function(strs) {
+  if (!strs.length) return '';
+
+  for (let i = 0; i < strs[0].length; i++) {
+    for (let str of strs) {
+      if (str[i] !== strs[0][i]) {
+        return str.slice(0, i);
+      }
+    }
+  }
+  return strs[0];
+}
+
+
+
+
+
+
+
+
