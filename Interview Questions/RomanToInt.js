@@ -1,6 +1,7 @@
 // Apple coding interview question
 
 /*
+Reference: https://leetcode.com/problems/roman-to-integer/solutions/373357/Simple-javascript-solution/
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value
