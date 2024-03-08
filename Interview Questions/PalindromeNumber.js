@@ -23,6 +23,7 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
 */
 
+// solution 1
 const isPalindrome = function(x) {
   x = x.toString();
 
@@ -40,7 +41,9 @@ const isPalindrome = function(x) {
 };
 
 
-
-  
-  }
+// solution 2
+function isPalindrome(x) {
+  const str = String(x);
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr;
 }
