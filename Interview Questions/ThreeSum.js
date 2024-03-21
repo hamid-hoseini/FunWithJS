@@ -124,3 +124,5 @@ function find3Numbers(A, arr_size, sum)
   
   
 // This code is contributed by Mayank Tyagi 
+// Time complexity: O(N^2). 
+// Space Complexity: O(1). 
