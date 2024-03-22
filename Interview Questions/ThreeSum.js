@@ -57,7 +57,10 @@ As no extra space is required.
 /*
 This method uses sorting to increase the efficiency of the code. 
 
-Approach: By Sorting the array the efficiency of the algorithm can be improved. This efficient approach uses the two-pointer technique. Traverse the array and fix the first element of the triplet. Now use the Two Pointers algorithm to find if there is a pair whose sum is equal to x – array[i]. Two pointers algorithm take linear time so it is better than a nested loop.
+Approach: By Sorting the array the efficiency of the algorithm can be improved. 
+This efficient approach uses the two-pointer technique. Traverse the array and fix the 
+first element of the triplet. Now use the Two Pointers algorithm to find if there is a 
+pair whose sum is equal to x – array[i]. Two pointers algorithm take linear time so it is better than a nested loop.
 Algorithm : 
 Sort the given array.
 Loop over the array and fix the first element of the possible triplet, arr[i].
@@ -126,3 +129,54 @@ function find3Numbers(A, arr_size, sum)
 // This code is contributed by Mayank Tyagi 
 // Time complexity: O(N^2). 
 // Space Complexity: O(1). 
+
+
+// Solution 3
+// This is a Hashing-based solution. 
+
+
+
+// JavaScript program to find a triplet using Hashing 
+
+// returns true if there is triplet 
+// with sum equal to 'sum' present 
+// in A[]. Also, prints the triplet 
+function find3Numbers(A,arr_size,sum) 
+{ 
+    // Fix the first element as A[i] 
+    for (let i = 0; i < arr_size - 2; i++) { 
+
+        // Find pair in subarray A[i+1..n-1] 
+        // with sum equal to sum - A[i] 
+        let s = new Set(); 
+        let curr_sum = sum - A[i]; 
+        for (let j = i + 1; j < arr_size; j++) 
+        { 
+            if (s.has(curr_sum - A[j])) 
+            { 
+                document.write( 
+                "Triplet is " +A[i]+", "+A[j]+", "+ 
+                (curr_sum - A[j])+"<br>"
+                ); 
+                
+                return true; 
+            } 
+            s.add(A[j]); 
+        } 
+    } 
+
+    // If we reach here, then no triplet was found 
+    return false; 
+} 
+
+/* Driver code */
+let A=[1, 4, 45, 6, 10, 8]; 
+
+let sum = 22; 
+let arr_size = A.length; 
+find3Numbers(A, arr_size, sum); 
+
+// Time complexity: O(N^2) 
+// Auxiliary Space: O(N)
+
+
