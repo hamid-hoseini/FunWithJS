@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+reference: https://www.geeksforgeeks.org/concatenation-of-zig-zag-string-in-n-rows/
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
 P   A   H   N
@@ -71,3 +72,19 @@ let str = "PAYPALISHIRING";
 let N = 3;
 printZigZagConcat(str, N);
  
+/* 
+Description:
+Approach: The given problem is an implementation based problem that can be solved by following the below steps
+
+Create an array of N strings, arr[N].
+Initialize direction as “down” and row as 0. The direction indicates whether the current pointer is moving up or down in rows.
+Traverse the input string, do the following for every character.
+Append the current character to the string representing the current row.
+If row number is N – 1, then change direction to ‘up’
+If row number is 0, then change direction to ‘down’
+If direction is ‘down’, do row++.  Else do row–.
+One by one print all strings of arr[].
+
+Time Complexity: O(N)
+Auxiliary Space: O(N)
+*/
