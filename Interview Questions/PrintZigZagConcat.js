@@ -33,3 +33,41 @@ Output: "A"
 
 */
 
+
+// JavaScript code for the above approach
+
+// Function that Prints concatenation of
+// all rows of str's Zig-Zag fashion
+const printZigZagConcat = (str, n) => {
+    if (n == 1) {
+        document.write(`${str}<br/>`);
+    }
+    let res = "";
+    let arr = new Array(n).fill("");
+    let down = false;
+    let row = 0; // helps in building individual blocks of strings
+
+    for (let i = 0; i < str.length; i++) {
+        arr[row] += str[i];
+        if (row == n - 1) {
+            down = false;
+        }
+        if (row == 0) {
+            down = true;
+        }
+        if (!down)
+            row--;
+        else
+            row++;
+    }
+
+    for (let i = 0; i < n; i++) {
+        document.write(arr[i]);
+    }
+}
+
+// Driver Code
+let str = "PAYPALISHIRING";
+let N = 3;
+printZigZagConcat(str, N);
+ 
