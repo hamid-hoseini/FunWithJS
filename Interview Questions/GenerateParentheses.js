@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 Example 1:
@@ -70,3 +71,5 @@ Output
 ((()))
 /*
 
+// Time complexity: O(2^n), as there are 2^n possible combinations of ‘(‘ and ‘)’ parentheses.
+// Auxiliary space: O(n), as n characters are stored in the str array.
