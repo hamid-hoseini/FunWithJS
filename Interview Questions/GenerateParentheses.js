@@ -123,3 +123,6 @@ function main() {
 }
 
 main();
+
+// Time Complexity: O(2^n)
+// Auxiliary Space:  O(n)
