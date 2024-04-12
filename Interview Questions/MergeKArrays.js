@@ -65,3 +65,12 @@ function printArray(arr , size) {
 
     document.write("Merged array is "); 
     printArray(output, N * K); 
+
+
+
+// Output
+/* Merged array is 
+1 2 6 9 12 20 23 34 34 90 1000 2000 
+Time Complexity: O(N * K * log (N*K)), Since the resulting array is of size N*K.
+Space Complexity: O(N * K), The output array is of size N * K.
+*/
