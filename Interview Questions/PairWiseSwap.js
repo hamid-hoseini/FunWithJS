@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
 Given a linked list, swap every two adjacent nodes and return its head. 
 You must solve the problem without modifying the values in the list's nodes 
 (i.e., only nodes themselves may be changed.)
@@ -93,3 +94,29 @@ var temp = head;
 
 // Time complexity: O(N), As we traverse the linked list only once.
 // Auxiliary Space: O(1), As constant extra space is used.
+
+
+// Solution 2:
+
+/*
+METHOD 2 (Recursive) 
+If there are 2 or more than 2 nodes in Linked List then swap the first two 
+nodes and recursively call for the rest of the list.
+*/
+
+function pairWiseSwap(head)
+{
+    /* There must be at-least two nodes in the list */
+    if (head != null && head.next != null) {
+  
+        /* Swap the node's data with data of next node */
+        swap(head.data, head.next.data);
+  
+        /* Call pairWiseSwap() for rest of the list */
+        pairWiseSwap(head.next.next);
+    }
+}
+
+// Time complexity: O(n)
+// Auxiliary Space: O(1), As it is a tail recursive function, 
+// function call stack would not be build and thus no extra space will be used.
