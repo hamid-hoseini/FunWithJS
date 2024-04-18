@@ -89,3 +89,7 @@ var temp = head;
         "Linked List after calling pairWiseSwap()<br/> "
         );
         printList();
+
+
+// Time complexity: O(N), As we traverse the linked list only once.
+// Auxiliary Space: O(1), As constant extra space is used.
