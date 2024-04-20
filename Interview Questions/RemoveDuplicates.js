@@ -1,6 +1,7 @@
 // Coding Interview Question 
 
 /*
+Reference: https://www.geeksforgeeks.org/remove-duplicates-sorted-array/
 Given a sorted array arr[] of size N, the task is to remove the duplicate elements from the array.
 
 Examples: 
@@ -114,4 +115,5 @@ for (let i = 0; i < n; i++) {
 	console.log(arr[i]);
 }
 
-// This code is contributed by shivamgupta0987654321
+// Time Complexity: O(N), in the worst case we will traverse the whole array when each element of array is unique.
+// Auxiliary Space: O(1),No extra space is used
