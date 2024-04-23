@@ -101,3 +101,7 @@ console.log(divide1(a, b));
  
 var a1 = 43, b1 = -8;
 console.log(divide2(a1, b1));
+
+// Time complexity : O(log(a)) 
+// Auxiliary space : O(1)
+
