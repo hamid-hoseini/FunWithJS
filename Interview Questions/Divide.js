@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/divide-two-integers-without-using-multiplication-division-mod-operator/
 Given two integers say a and b. Find the quotient after dividing a by b without using multiplication, division, and mod operator.
 
 Example: 
@@ -96,7 +97,7 @@ return quotient;
 // Driver code
  
 var a = 10, b = 3;
-console.log(divide1(a, b) + "<br>");
+console.log(divide1(a, b));
  
 var a1 = 43, b1 = -8;
-console.log(divide2(a1, b1) + "<br>");
+console.log(divide2(a1, b1));
