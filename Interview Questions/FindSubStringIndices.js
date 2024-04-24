@@ -44,3 +44,74 @@ The substring starting at 9 is "barthefoo". It is the concatenation of ["bar","t
 The substring starting at 12 is "thefoobar". It is the concatenation of ["the","foo","bar"].
 
 */
+
+function findSubStringIndices(s, L){
+ 
+    // Number of a characters of a word in list L.
+    let size_word = L[0].length
+ 
+    // Number of words present inside list L.
+    let word_count = L.length
+ 
+    // Total characters present in list L.
+    let size_L = size_word * word_count
+ 
+    // Resultant vector which stores indices.
+    let res = []
+ 
+    // If the total number of characters in list L
+    // is more than length of string S itself.
+    if(size_L > s.length)
+        return res
+ 
+    // Map stores the words present in list L
+    // against it's occurrences inside list L
+    let hash_map = new Map()
+ 
+    for(let i=0;i<word_count;i++){
+        if(hash_map.has(L[i]))
+            hash_map.set(L[i],hash_map.get(L[i]) + 1)
+        else
+            hash_map.set(L[i], 1)
+    }
+ 
+    for(let i=0;i< s.length - size_L + 1;i++){
+        let temp_hash_map = new Map(hash_map)
+        let j = i
+        let count = word_count
+ 
+        // Traverse the substring
+        while(j < i + size_L){
+ 
+            // Extract the word
+            let word = s.substring(j,j+size_word)
+ 
+            // If word not found or if frequency of
+            // current word is more than required simply break.
+            if (hash_map.has(word) == false || temp_hash_map.get(word) == 0)
+                break
+ 
+            // Else decrement the count of word
+            // from hash_map
+            else{
+                temp_hash_map.set(word ,temp_hash_map.get(word)- 1)
+                count -= 1
+            }
+            j += size_word
+        }
+ 
+        // Store the starting index of that substring
+        // when all the words in the list are in substring
+        if(count == 0)
+            res.push(i)
+    }
+    return res
+}
+ 
+// Driver Code
+ 
+let s = "barfoothefoobarman"
+let L = ["foo", "bar"]
+let indices = findSubStringIndices(s, L)
+
+console.log(indices)
