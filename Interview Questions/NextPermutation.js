@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/next-permutation/
 Given an array arr[] of size N, the task is to print the lexicographically next greater 
 permutation of the given array. If there does not exist any greater permutation, then print 
 the lexicographically smallest permutation of the given array.
@@ -16,6 +17,17 @@ So, the next permutation is the lowest one.
 */
 
 // solution 
+
+/*
+Let’s first understand what is lexicographical order in the above-given program.
+
+We have to check that the order of the array sequence is greater than the previous array sequence. 
+The output will be just larger sequence of the array.
+
+Brute Force Approach :
+Find all possible permutations of the given array.
+Print the Next permutation right after the er given input sequence.
+*/
 
 function NextPermutation(arr) {
     let i = arr.length - 2;
