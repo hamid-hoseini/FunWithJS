@@ -63,3 +63,75 @@ console.log(GFG(str2));
 
 // Time complexity of this solution is O(n3).
 // Space Complexity: O(1)
+
+
+
+// Solution 2
+/*
+Time Complexity: O(N), here N is the length of string.
+Auxiliary Space: O(N)
+
+In the previous approach without using 2 different loops the whole approach can also be done in a single loop.
+*/
+
+// JavaScript Program for the above approach
+function findMaxLen(str) {
+    let n = str.length;
+    
+    // Create a stack and push -1 as 
+    // initial index to it.
+    let stk = [];
+    stk.push(-1);
+    
+    // Initialize result
+    let result = 0;
+    
+    // Traverse all characters of given string
+    for (let i = 0; i < n; i++)
+    {
+        // If opening bracket, push index of it
+        if (str.charAt(i) == '(') 
+        {
+            stk.push(i);
+        }
+        
+        // If closing bracket, i.e.,str[i] = ')'
+        else
+        {
+            // Pop the previous opening
+            // bracket's index
+            if (stk.length != 0) {
+                stk.pop();
+            }
+    
+            // Check if this length formed with base of
+            // current valid substring is more than max
+            // so far
+            if (stk.length != 0) {
+                result = Math.max(result, i - stk[stk.length - 1]);
+            }
+            
+            // If stack is empty. push current index as
+            // base for next valid substring (if any)
+            else {
+                stk.push(i);
+            }
+        }
+    }
+    
+    return result;
+}
+
+// Driver code
+let str = "((()()";
+
+// Function call
+console(findMaxLen(str) + "<br>");
+
+str = "()(()))))";
+
+// Function call
+console(findMaxLen(str) + "<br>");
+
+
+
