@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/find-first-and-last-positions-of-an-element-in-a-sorted-array/
 Last Updated : 17 Apr, 2023
 Given a sorted array arr[] with possibly duplicate elements, the task is to find indexes of 
 the first and last occurrences of an element x in the given array. 
@@ -57,4 +58,43 @@ findFirstAndLast(arr, x);
 
 // Time Complexity: O(n) 
 // Auxiliary Space: O(1)
+
+
+// Solution 2
+// using inbuilt functions
+
+// JavaScript program for the above approach
+
+function first(list, x){
+	// return first occurrence index
+	// of element x in ArrayList
+	// using method indexOf()
+	return list.indexOf(x);
+}
+
+function last(list, x){
+	// return last occurrence index
+	// of element x in ArrayList
+	// using method lastIndexOf()
+	return list.lastIndexOf(x);
+}
+
+let arr = [ 1, 2, 2, 2, 2, 3, 4, 7, 8, 8 ];
+let clist = new Array();
+
+// adding elements of array to ArrayList
+for(let i=0;i<arr.length;i++){
+	clist.push(arr[i]);
+}
+let x = 8;
+
+// displaying the first occurrence
+console.log("First Occurrence = " + first(clist, x) + "<br>");
+
+// displaying the last occurrence
+console.log("Last Occurrence = " + last(clist, x));
+
+// This code is contributed by lokeshmvs21.
+
+
 
