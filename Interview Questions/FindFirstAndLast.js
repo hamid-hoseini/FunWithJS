@@ -94,7 +94,13 @@ console.log("First Occurrence = " + first(clist, x) + "<br>");
 // displaying the last occurrence
 console.log("Last Occurrence = " + last(clist, x));
 
-// This code is contributed by lokeshmvs21.
+// Time Complexity: O(n) As Inbuilt function runs a internal for loop for finding the 
+// first index and last index of that element so it takes O(n)
+// Auxiliary Space: O(1) 
+
+// Solution 3
+
+
 
 
 
