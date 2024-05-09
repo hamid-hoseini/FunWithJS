@@ -1,7 +1,7 @@
 // Coding Interview Question
 
 /*
-
+Reference: https://www.geeksforgeeks.org/check-if-given-sudoku-board-configuration-is-valid-or-not/
 Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 
 Each row must contain the digits 1-9 without repetition.
@@ -160,3 +160,5 @@ Explanation: Same as Example 1, except with the 5 in the top left corner being m
 console.log(isValidConfig(board, 9) ? "YES" : "NO"));
 	
 
+// Time Complexity: O(N * N)
+// Auxiliary Space: O(1) 
