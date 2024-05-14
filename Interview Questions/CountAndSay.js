@@ -36,3 +36,50 @@ console.log(countAndSay(5));
 console.log(countAndSay(7));
 console.log(countAndSay(10));
 
+/*
+Output
+111221
+13112221
+13211311123113112211
+
+Time Complexity: O(2n), where n is the input parameter.
+Space Complexity : O(2n)
+*/
+
+
+/* 
+Recursive Approach:
+In this approach, we will create a recursive function with a base case that calls itself 
+again and again until it finds the given term of the series.
+
+Example: The below code implements a recursive function to find the nth term of the series.
+*/
+
+function countAndSay1(n) {
+    if (n === 1) return "1";
+    let prevTerm = countAndSay(n - 1);
+    let count = 1;
+    let currentTerm = "";
+    for (let i = 0; i < prevTerm.length; i++) {
+        if (prevTerm[i] === prevTerm[i + 1]) {
+            count++;
+        } else {
+            currentTerm += count + prevTerm[i];
+            count = 1;
+        }
+    }
+    return currentTerm;
+}
+console.log(countAndSay1(5));
+console.log(countAndSay1(7));
+console.log(countAndSay1(10));
+
+/*
+Output
+111221
+13112221
+13211311123113112211
+
+Time Complexity: O(n*m) , where n is the input parameter.
+Space Complexity: O(n)
+*/
