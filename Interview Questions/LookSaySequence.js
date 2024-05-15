@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/look-and-say-sequence/
 Find the n’th term in Look-and-say (Or Count and Say) Sequence. The look-and-say sequence is the sequence of the below integers: 
 1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, … 
 
@@ -102,3 +103,7 @@ let N = 3;
 
 console.log(countnndSay(N));
 
+/*
+Time Complexity : O(n2) 
+Auxiliary Space : O(1)
+*/
