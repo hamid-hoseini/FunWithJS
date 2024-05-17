@@ -107,3 +107,50 @@ console.log(countnndSay(N));
 Time Complexity : O(n2) 
 Auxiliary Space : O(1)
 */
+
+
+// Solution2:
+/*
+Using STL:
+There is one more idea where we can use unordered_map from c++ stl to track the count of digits. 
+Basic idea is to use a generator function that will generate a string from the previous string. 
+In the count and say function we will iterate over integers from 1 to n-1 and keep updating our result.
+*/
+
+// generator function returns the count-and-say string for the previous string
+// e.g. it will return '1211' for '21' (One 2's and One 1's)
+function generator(str) {
+  let ans = "";
+  let tempCount = new Map(); // It is used to count integer sequences
+
+  for (let i = 0; i < str.length + 1; i++) {
+    // When the current character is different from the previous one,
+    // we clear the map and update the ans
+    if (!tempCount.has(str[i]) && i > 0) {
+      const prev = tempCount.get(str[i - 1]);
+      ans += prev + str[i - 1];
+      tempCount.clear();
+    }
+
+    // When the current character is the same as the previous one,
+    // we increase its count value
+    tempCount.set(str[i], (tempCount.get(str[i]) || 0) + 1);
+  }
+
+  return ans;
+}
+
+function countAndSay1(n) {
+  let res = "1"; // res variable keeps track of strings from 1 to n-1
+
+  // For loop iterates n-1 times and generates strings in sequence
+  // "1" -> "11" -> "21" -> "1211"
+  for (let i = 1; i < n; i++) {
+    res = generator(res);
+  }
+
+  return res;
+}
+
+const N = 3;
+console.log(countAndSay1(N));
