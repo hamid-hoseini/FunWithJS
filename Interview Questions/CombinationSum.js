@@ -118,4 +118,5 @@ for (let i = 0; i < ans.length; i++) {
 	document.write(") ");
 }
 
-
+// Time Complexity: O(k*(2^n)) where n is the size of the array, and k is the average length
+// Auxiliary Space: O(k*x) where x is the number of possible combinations
