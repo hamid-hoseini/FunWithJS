@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/multiply-large-numbers-represented-as-strings/
 Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
 
 Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.
@@ -47,3 +48,7 @@ const a = "1235421415454545454545454544";
 const b = "1714546546546545454544548544544545";
 const product = multiplyStrings(a, b);
 console.log("The Product is: " + product);
+
+
+// Time Complexity: O(m*n), where m and n are length of two number that need to be multiplied.
+// Auxiliary Space: O(m+n), where m and n are length of two number that need to be multiplied.
