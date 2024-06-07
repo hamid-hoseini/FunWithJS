@@ -1,6 +1,7 @@
-// COding Interview Question
+// Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/print-all-possible-permutations-of-an-array-with-duplicates-using-backtracking/
 Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
 
 Example 1:
@@ -104,3 +105,6 @@ nums.push(2);
 // all distinct permutations
 getDistinctPermutations();
 
+
+// Time Complexity: O(N! * N)
+// Auxiliary Space: O(N! * N)
