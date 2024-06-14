@@ -1,7 +1,7 @@
 // Coding Interview Question
 
 /*
-
+Reference: https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/
 Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
 
 Example 1:
@@ -74,4 +74,23 @@ function power1(x , n) {
 // Auxiliary Space: O(n) n is the size of the recursion stack
 
 
+// Solution 3: Program to calculate pow(x, n) using Divide and Conqueror approach:
+
+function power2(x, y)
+{
+    if (y == 0)
+        return 1;
+    else if (y % 2 == 0)
+        return power2(x, parseInt(y / 2, 10)) *
+            power2(x, parseInt(y / 2, 10));
+    else
+        return x * power2(x, parseInt(y / 2, 10)) *
+                power2(x, parseInt(y / 2, 10));
+}
+
+// Driver code
+let x = 2;
+let y = 3;
+
+console.log(power2(x, y));
 
