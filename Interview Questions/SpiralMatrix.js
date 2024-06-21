@@ -83,7 +83,9 @@ let a=[[ 1, 2, 3, 4 ],[ 5, 6, 7, 8 ],
 console.log(spiralOrder(a));
 					
 
-
+//Time Complexity: O(N), where N is the total number of elements in the input matrix. 
+// We add every element in the matrix to our final answer
+// Auxiliary Space: O(N), the information stored in seen and in ans.
 
 
 
