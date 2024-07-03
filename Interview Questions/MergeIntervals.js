@@ -93,3 +93,14 @@ mergeIntervals(arr);
 
 // Time complexity: O(N*log(N))
 // Auxiliary Space: O(N)
+
+// Solution 2
+
+/*
+Merge Overlapping Intervals using Sorting (Optimized Approach):
+To solve this problem optimally we have to first sort the intervals according to the starting time. 
+Once we have the sorted intervals, we can combine all intervals in a linear traversal. The idea is, 
+in sorted array of intervals, if interval[i] doesn’t overlap with interval[i-1], then interval[i+1] 
+cannot overlap with interval[i-1] because starting time of interval[i+1] must be greater than or equal to interval[i].
+*/
+
