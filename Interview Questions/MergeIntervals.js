@@ -1,0 +1,95 @@
+// Coding Interview Questions
+
+/*
+Reference: https://www.geeksforgeeks.org/merging-intervals/
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, 
+and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
+Example 1:
+
+Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+Example 2:
+
+Input: intervals = [[1,4],[4,5]]
+Output: [[1,5]]
+Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+*/
+
+// Solution: 
+
+/*
+Brute Force Approach:
+
+A simple approach is to start from the first interval and compare it with all other intervals for overlapping, 
+if it overlaps with any other interval, then remove the other interval from the list and merge the other into 
+the first interval. Repeat the same steps for the remaining intervals after the first. This approach cannot be 
+implemented in better than O(n^2) time.
+*/
+
+// A JavaScript program for merging overlapping intervals
+
+// An interval has a start time and end time
+class Interval {
+	constructor(start, end) {
+		this.start = start;
+		this.end = end;
+	}
+}
+
+// Compares two intervals according to their starting time.
+function compareInterval(i1, i2) {
+	return (i1.start < i2.start);
+}
+
+// The main function that takes a set of intervals, merges
+// overlapping intervals and prints the result
+function mergeIntervals(arr) {
+	// Test if the given set has at least one interval
+	if (arr.length <= 0)
+		return;
+
+	// Create an empty stack of intervals
+	let s = [];
+
+	// sort the intervals in increasing order of start time
+	arr.sort(compareInterval);
+
+	// push the first interval to stack
+	s.push(arr[0]);
+
+	// Start from the next interval and merge if necessary
+	for (let i = 1; i < arr.length; i++) {
+		// get interval from stack top
+		let top = s[s.length-1];
+
+		// if current interval is not overlapping with stack
+		// top, push it to the stack
+		if (top.end < arr[i].start)
+			s.push(arr[i]);
+
+		// Otherwise update the ending time of top if ending
+		// of current interval is more
+		else if (top.end < arr[i].end) {
+			top.end = arr[i].end;
+			s.pop();
+			s.push(top);
+		}
+	}
+
+	// Print contents of stack
+	console.log("The Merged Intervals are: ");
+	while (s.length > 0) {
+		let t = s.pop();
+		console.log("[" + t.start + "," + t.end + "] ");
+	}
+	return;
+}
+
+// Driver program
+let arr = [new Interval(6,8), new Interval(1,9), new Interval(2,4), new Interval(4,7)];
+mergeIntervals(arr);
+
+// Time complexity: O(N*log(N))
+// Auxiliary Space: O(N)
