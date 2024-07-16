@@ -56,5 +56,40 @@ function numberOfPaths(m, n) {
  
 document.write(numberOfPaths(3, 3)+"<br>");
 
+// Time Complexity: O(2N)
+// Auxiliary Space: O(N + M)
+
+
+// Solution 2: Memoization
+
+// Create an empty 2D table
+let DP = new Array(4);
+for(let i = 0; i < 4; i++) {
+     
+    DP[i] = new Array(4);
+    for(let j = 0; j < 4; j++) {
+        DP[i][j] = 0;
+    }
+}
+ 
+// Returns count of possible paths to reach
+// cell at row number m and column number n from
+// the topmost leftmost cell (cell at 1, 1)
+function numberOfPaths(n, m, DP){
+ 
+    if(n == 1 || m == 1)
+        return DP[n][m] = 1;
+     
+    // Add the element in the DP table
+    // If it was not computed before
+    if(DP[n][m] == 0)
+        DP[n][m] = numberOfPaths(n - 1, m,DP) + numberOfPaths(n, m - 1,DP);
+ 
+    return DP[n][m];
+}
+ 
+// Driver code
+ 
+document.write(numberOfPaths(3, 3,DP));
 
 
