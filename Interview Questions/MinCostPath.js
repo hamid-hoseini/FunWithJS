@@ -1,0 +1,51 @@
+// Coding Interview Question
+
+/*
+Given a cost matrix cost[][] and a position (M, N) in cost[][], write a function that returns cost of 
+minimum cost path to reach (M, N) from (0, 0). Each cell of the matrix represents a cost to traverse 
+through that cell. The total cost of a path to reach (M, N) is the sum of all the costs on that path 
+(including both source and destination). You can only traverse down, right and diagonally lower cells 
+from a given cell, i.e., from a given cell (i, j), cells (i+1, j), (i, j+1), and (i+1, j+1) can be traversed. 
+
+The path with minimum cost is highlighted in the following figure. 
+The path is (0, 0) –> (0, 1) –> (1, 2) –> (2, 2). The cost of the path is 8 (1 + 2 + 2 + 3).  
+*/
+
+// solution1 : recursion
+
+// A Naive recursive implementation of
+// MCP(Minimum Cost Path) problem 
+
+// A utility function that returns 
+// minimum of 3 integers
+function min(x, y, z)
+{
+	if (x < y)
+		return (x < z) ? x : z;
+	else
+		return (y < z) ? y : z;
+}
+
+// Returns cost of minimum cost path 
+// from (0,0) to (m, n) in mat[R][C]
+function minCost(cost, m, n)
+{
+	if (n < 0 || m < 0)
+		return Number.MAX_VALUE;
+	else if (m == 0 && n == 0)
+		return cost[m][n];
+	else
+		return cost[m][n] + min(minCost(cost, m - 1, n - 1), 
+								minCost(cost, m - 1, n), 
+								minCost(cost, m, n - 1));
+}
+
+// Driver code
+var cost = [ [ 1, 2, 3 ], 
+			[ 4, 8, 2 ], 
+			[ 1, 5, 3 ] ];
+
+document.write(minCost(cost, 2, 2));
+
+// Time Complexity: O((M * N)3)
+// Auxiliary Space: O(M + N), for recursive stack space
