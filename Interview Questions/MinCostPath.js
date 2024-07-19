@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/min-cost-path-dp-6/
 Given a cost matrix cost[][] and a position (M, N) in cost[][], write a function that returns cost of 
 minimum cost path to reach (M, N) from (0, 0). Each cell of the matrix represents a cost to traverse 
 through that cell. The total cost of a path to reach (M, N) is the sum of all the costs on that path 
@@ -49,3 +50,63 @@ document.write(minCost(cost, 2, 2));
 
 // Time Complexity: O((M * N)3)
 // Auxiliary Space: O(M + N), for recursive stack space
+
+
+
+// Solution 2: using Memoization DP
+
+const R = 3;
+const C = 3;
+
+// Helper function to find the minimum of three integers
+function min(x, y, z) {
+	return (x < y) ? (x < z ? x : z) : (y < z ? y : z);
+}
+
+// Function to calculate the minimum cost path using memoization
+function minCostMemoized(cost, m, n, memo) {
+	// Base case: if we're outside the grid, return a large value
+	if (n < 0 || m < 0) {
+		return Number.MAX_SAFE_INTEGER;
+	} 
+	// Base case: if we're at the top-left cell, return its cost
+	else if (m === 0 && n === 0) {
+		return cost[m][n];
+	}
+
+	// If the result is already computed, return it
+	if (memo[m][n] !== -1) {
+		return memo[m][n];
+	}
+
+	// Calculate the cost for the current cell and store it in the memo table
+	memo[m][n] = cost[m][n] + min(
+		minCostMemoized(cost, m - 1, n - 1, memo), // Diagonal
+		minCostMemoized(cost, m - 1, n, memo),	 // Up
+		minCostMemoized(cost, m, n - 1, memo)	 // Left
+	);
+
+	return memo[m][n];
+}
+
+// Function to find the minimum cost path from (0,0) to (m, n)
+function minCost(cost, m, n) {
+	// Initialize a memoization table filled with -1
+	const memo = new Array(R).fill().map(() => new Array(C).fill(-1));
+
+	// Call the memoized function to compute the result
+	return minCostMemoized(cost, m, n, memo);
+}
+
+// Input matrix of costs
+const cost = [
+	[1, 2, 3],
+	[4, 8, 2],
+	[1, 5, 3]
+];
+
+// Calculate and print the minimum cost path
+console.log(minCost(cost, 2, 2));
+
+// Time Complexity: O(M * N)
+// Auxiliary Space: O(M * N)
