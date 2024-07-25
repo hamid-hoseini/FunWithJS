@@ -23,3 +23,59 @@ An exponent is defined with an exponent notation 'e' or 'E' followed by an integ
 
 The digits are defined as one or more digits.
 */
+
+
+/*
+Using the isNaN Function
+Using the Number() Function
+Using the isFinite Function
+*/
+
+// solution 1: 
+function numberValidation(n) {
+
+    if (isNaN(n)) {
+        console.log("Please enter Numeric value");
+        return false;
+    } else {
+        console.log("Numeric value is: " + n);
+        return true;
+    }
+}
+
+let num = 4;
+numberValidation(4);
+
+
+// solution 2:
+function validateNumber(value) {
+    if (typeof value === 'number' && isFinite(value)) {
+        console.log('Valid number');
+    } else {
+        console.log('Not a valid number');
+    }
+}
+
+validateNumber(123); 
+validateNumber('abc'); 
+validateNumber(NaN); 
+validateNumber(Infinity); 
+
+
+
+// solution 3:
+// Validate number string using Number function
+
+function isValidNumberNumber(str) {
+    return !isNaN(Number(str));
+}
+
+console.log(isValidNumberNumber("123"));     
+console.log(isValidNumberNumber("-1.23"));    
+console.log(isValidNumberNumber("3.14e5"));    
+console.log(isValidNumberNumber("abc"));     
+console.log(isValidNumberNumber("123.45.67")); 
+
+
+
+// solution 4: 
