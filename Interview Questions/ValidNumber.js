@@ -77,5 +77,15 @@ console.log(isValidNumberNumber("abc"));
 console.log(isValidNumberNumber("123.45.67")); 
 
 
-
 // solution 4: 
+// Validate number string using isFinite function
+
+function isValidNumberIsFinite(str) {
+    return isFinite(str);
+}
+
+console.log(isValidNumberIsFinite("123"));      
+console.log(isValidNumberIsFinite("-1.23"));    
+console.log(isValidNumberIsFinite("3.14e5"));    
+console.log(isValidNumberIsFinite("abc"));       
+console.log(isValidNumberIsFinite("123.45.67")); 
