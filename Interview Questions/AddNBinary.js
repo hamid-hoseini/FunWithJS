@@ -1,6 +1,7 @@
 // coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/add-n-binary-strings/
 Given n binary strings, return their sum (also a binary string).
 
 Examples:  
@@ -64,3 +65,36 @@ document.write( addBinary(arr, n));
 // Time complexity: O(n) 
 // Auxiliary Space: O(n)
 
+
+
+// Solution 2:
+
+/*
+By converting the binary strings to decimal numbers.
+*/
+
+function addBinary(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let num = 0;
+        for (let j = arr[i].length - 1; j >= 0; j--) {
+            if (arr[i][j] === '1') {
+                num += Math.pow(2, arr[i].length - j - 1);
+            }
+        }
+        sum += num;
+    }
+    let result = '';
+    while (sum > 0) {
+        result = (sum % 2 === 0 ? '0' : '1') + result;
+        sum = Math.floor(sum / 2);
+    }
+    return result;
+}
+ 
+// Driver code
+const arr = ['1', '10', '11'];
+console.log(addBinary(arr));
+
+// Time Complexity: O(N*K)
+// Auxiliary Space: O(1)
