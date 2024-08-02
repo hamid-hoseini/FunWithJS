@@ -72,3 +72,26 @@ function countWays(n, dp)
 let n = 4;
  let dp = new Array(n+1).fill(-1) ;
 console.log("Number of ways = " + countWays(n,dp));
+
+// Time Complexity: O(n)
+// Auxiliary Space: O(n)
+
+
+// Climbing Stairs using Dynamic Programming (Tabulation):
+// A function to find number of ways to reach the nth stair
+
+function countWays(n) {
+   let dp = [];
+   dp[0] = 1; 
+   dp[1] = 1;
+   for (let i = 2; i <=n; i++)
+   {
+       dp[i]=dp[i-1]+dp[i-2];
+   }
+   return dp[n];
+}
+
+
+   // Driver Code
+   let n=4;
+   console.log("Number of ways = " + countWays(n));
