@@ -95,3 +95,27 @@ function countWays(n) {
    // Driver Code
    let n=4;
    console.log("Number of ways = " + countWays(n));
+
+// Time Complexity: O(n)
+// Auxiliary Space: O(n)
+
+
+// Climbing Stairs Problem using the Space Optimized approach:
+function countWays(n) {
+    // declaring  two variables to store the count
+    let prev = 1;
+    let prev2 = 1;
+    // Running for loop to count all possible ways
+    for (let i = 2; i <= n; i++) {
+        let curr = prev + prev2;
+        prev2 = prev;
+        prev = curr;
+    }
+    return prev;
+}
+
+let n = 4;
+console.log("Number of Ways: ", countWays(n));
+
+// Time Complexity: O(N)
+// Auxiliary Space: O(1)
