@@ -163,3 +163,76 @@ for(let i = 0; i < n + 1; i++)
 }
 
 console.log(minDis(str1, str2, n, m, dp));
+
+// Time Complexity: O(m x n) 
+// Auxiliary Space: O( m *n)+O(m+n) , (m*n) extra array space and (m+n) recursive stack space.
+
+/*
+Returning final solution: After filling the table iteratively, our final solution gets stored at the 
+bottom right corner of the 2-D table i.e. we return Edit[m][n] as an output.
+*/
+
+// A Dynamic Programming based 
+// Javascript program to find minimum
+// number operations to convert str1 to str2
+
+function editDistDP(str1,str2,m,n)
+{
+    // Create a table to store results of subproblems
+        let dp = new Array(m + 1);
+        for(let i=0;i<m+1;i++)
+        {
+            dp[i]=new Array(n+1);
+            for(let j=0;j<n+1;j++)
+            {
+                dp[i][j]=0;
+            }
+        }
+ 
+        // Fill d[][] in bottom up manner
+        for (let i = 0; i <= m; i++) {
+            for (let j = 0; j <= n; j++) {
+                // If first string is empty, only option is
+                // to insert all characters of second string
+                if (i == 0)
+                    dp[i][j] = j; // Min. operations = j
+ 
+                // If second string is empty, only option is
+                // to remove all characters of second string
+                else if (j == 0)
+                    dp[i][j] = i; // Min. operations = i
+ 
+                // If last characters are same, ignore last
+                // char and recur for remaining string
+                else if (str1[i - 1]
+                         == str2[j - 1])
+                    dp[i][j] = dp[i - 1][j - 1];
+ 
+                // If the last character is different,
+                // consider all possibilities and find the
+                // minimum
+                else
+                    dp[i][j] = 1
+                               + min(dp[i][j - 1], // Insert
+                                     dp[i - 1][j], // Remove
+                                     dp[i - 1]
+                                       [j - 1]); // Replace
+            }
+        }
+ 
+        return dp[m][n];
+}
+
+function min(x,y,z)
+{
+    return Math.min(x, Math.min(y, z));
+}
+
+// Driver Code
+let str1 = "GEEXSFRGEEKKS";
+let str2 = "GEEKSFORGEEKS";
+console.log(editDistDP(str1, str2, str1.length, str2.length));
+
+// Time Complexity: O(m x n) 
+// Auxiliary Space: O(m x n)
+
