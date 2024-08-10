@@ -236,3 +236,45 @@ console.log(editDistDP(str1, str2, str1.length, str2.length));
 // Time Complexity: O(m x n) 
 // Auxiliary Space: O(m x n)
 
+
+// Edit Distance Using Dynamic Programming (Space Optimized):
+
+class Solution {
+  // space optimization
+  editDistance(s, t) {
+    const n = s.length;
+    const m = t.length;
+ 
+    const prev = new Array(m + 1).fill(0);
+    const curr = new Array(m + 1).fill(0);
+ 
+    for (let j = 0; j <= m; j++) {
+      prev[j] = j;
+    }
+ 
+    for (let i = 1; i <= n; i++) {
+      curr[0] = i;
+      for (let j = 1; j <= m; j++) {
+        if (s[i - 1] === t[j - 1]) {
+          curr[j] = prev[j - 1];
+        } else {
+          const mn = Math.min(1 + prev[j], 1 + curr[j - 1]);
+          curr[j] = Math.min(mn, 1 + prev[j - 1]);
+        }
+      }
+      prev.splice(0, m + 1, ...curr);
+    }
+ 
+    return prev[m];
+  }
+}
+ 
+const s = "GEEXSFRGEEKKS";
+const t = "GEEKSFPRGEEKS";
+ 
+const ob = new Solution();
+const ans = ob.editDistance(s, t);
+console.log(ans);
+
+// Time Complexity: O(M x N) where M and N are lengths of the string 
+// Auxiliary Space: O( N ), Length of the str2
