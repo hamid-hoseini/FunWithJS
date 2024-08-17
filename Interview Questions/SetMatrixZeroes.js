@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/set-entire-matrix-row-and-column-as-zeroes/
 Given a Matrix arr of size M x N, the task is to set all rows and columns to zeroes if a 
 particular element is zero, in constant space complexity.
 
@@ -68,3 +69,7 @@ setMatrixZeroes(arr);
 for (let i = 0; i < arr.length; i++) {
     console.log(arr[i].join(' '));
 }
+
+// Time Complexity: O((N*M)*(N + M)) + O(N*M), where N = no. of rows in the matrix and M = no. of 
+// columns in the matrix. we are traversing the matrix to find the cells with the value 0. It takes O(N*M).
+// Auxillary space: O(1) as we are not using any extra space.
