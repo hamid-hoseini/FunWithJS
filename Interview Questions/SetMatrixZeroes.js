@@ -123,3 +123,71 @@ setMatrixZeroes(arr);
 // Time Complexity: O(2*(N*M)), where N = no. of rows in the matrix and M = no. of columns in the matrix.
 // Auxillary Space: O(N) + O(M), O(N) is for using the row array and O(M) is for using the col array.
 
+
+// Efficient Approach:
+
+function setMatrixZeroes(matrix) {
+    const n = matrix.length;
+    const m = matrix[0].length;
+
+    let C0 = 1;
+
+    // Traverse the matrix and mark 1st row & 1st col as follows:
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
+            if (matrix[i][j] === 0) {
+
+                // mark i-th row:
+                matrix[i][0] = 0;
+
+                // mark j-th column:
+                if (j === 0) {
+                    C0 = 0;
+                } else {
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+    }
+
+    // Mark with 0 from (1,1) to (n-1, m-1):
+    for (let i = 1; i < n; i++) {
+        for (let j = 1; j < m; j++) {
+            if (matrix[i][j] !== 0) {
+
+                // Check for col & row:
+                if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    // Finally mark the 1st row then 1st col:
+    if (matrix[0][0] === 0) {
+        matrix[0].fill(0);
+    }
+    if (C0 === 0) {
+        for (let i = 0; i < n; i++) {
+            matrix[i][0] = 0;
+        }
+    }
+}
+
+// Driver Code
+const matrix = [
+    [0, 1, 2, 0],
+    [3, 4, 5, 2],
+    [1, 3, 1, 5]
+];
+
+// Function call
+setMatrixZeroes(matrix);
+
+// Print the resulting matrix
+for (let i = 0; i < matrix.length; i++) {
+    console.log(matrix[i].join(' '));
+}
+
+// Time Complexity: O(2*(N*M))
+// Auxillary space: O(1)
