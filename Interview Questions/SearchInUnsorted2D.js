@@ -1,6 +1,7 @@
 // Coding Interview Question
 
 /*
+Reference: https://www.geeksforgeeks.org/searching-algorithms-for-a-2d-arrays-matrix/
 Search in an Unsorted 2D Array
 */
 
@@ -24,5 +25,6 @@ let target = 89;
 let ans = linearSearch(arr, target);
 document.write(`Element found at index: [${ans[0]} ${ans[1]}]`);
 
-
+// Time Complexity: O (N * M), where N is the number of rows and M is the number of columns.
+// Auxiliary Space: O(1)
 
