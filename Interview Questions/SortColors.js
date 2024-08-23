@@ -106,3 +106,5 @@ let arr = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1];
 sort012(arr);
 printArray(arr);
 
+// Time Complexity: O(n), Only one traversal of the array is needed.
+// Auxiliary Space : O(1), No extra space is required.
